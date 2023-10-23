@@ -59,15 +59,13 @@ tr {
 th {
     height: 2rem;
     text-align: left;
-<<<<<<< HEAD
-=======
     color: #155bbc;
->>>>>>> 34a5b766cee79834e8bf148d9584aced5fac30ac
     background-color: #d3d3d3;
 }
 
 img {
-    size-adjust: 75%;
+    max-width: 100%;
+    height: auto;
 }
 
 .menu-icon {
