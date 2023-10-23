@@ -44,8 +44,8 @@ header {
     text-align: center;
 }
 
-table.favorites-list {
-    width: 75%;
+table {
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
@@ -59,7 +59,10 @@ tr {
 th {
     height: 2rem;
     text-align: left;
+<<<<<<< HEAD
+=======
     color: #155bbc;
+>>>>>>> 34a5b766cee79834e8bf148d9584aced5fac30ac
     background-color: #d3d3d3;
 }
 
