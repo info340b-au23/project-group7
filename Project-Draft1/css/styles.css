@@ -48,7 +48,7 @@ table.favorites-list {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    border-collapse: separate;
+    border-collapse: collapse;
 }
 
 tr {
@@ -64,8 +64,7 @@ th {
 }
 
 img {
-    height: 100px;
-    width: 100px;
+    size-adjust: 75%;
 }
 
 .menu-icon {
@@ -185,4 +184,52 @@ footer {
     padding: 10px;
     bottom: 0;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    #filter-form label, #filter-form input, #filter-form button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .featured-car {
+        flex: 1;
+    }
+}
+
+@media (min-width: 769px) {
+    header h1 {
+        font-size: 36px;
+    }
+
+    #filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #filter-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #filter-form label, #filter-form input, #filter-form button {
+        flex: 1;
+        max-width: 30%;
+        margin: 5px;
+    }
+
+    #featured {
+        display: flex;
+    }
+
+    .featured-car {
+        flex: 1;
+        margin: 10px;
+    }
 }
