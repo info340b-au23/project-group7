@@ -9,7 +9,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    position: relative
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
 }
 
 img {
@@ -18,7 +23,10 @@ img {
 }
 
 .background-image {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     top: 0;
     left: 0;
     width: 100%;
