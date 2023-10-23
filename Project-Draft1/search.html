@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Car Search and Match</title>
+</head>
+
+<body>
+    <header>
+        <h1>Car Search and Match</h1>
+    </header>
+    <main>
+        <section id="search">
+            <h2>Search for a Car</h2>
+            <form id="search-form">
+                <label for="make">Make:</label>
+                <input type="text" id="make" name="make" placeholder="Enter car make">
+
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" placeholder="Enter car model">
+
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" placeholder="Enter car year">
+
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section id="results">
+            <h2>Matching Cars</h2>
+            <ul id="car-list">
+            </ul>
+        </section>
+    </main>
+
+    <section id="featured">
+        <h2>Featured Cars</h2>
+        <div class="featured-car">
+            <img src="../img/car1.jpg" alt="Featured-car 1">
+            <h3>Honda Civic</h3>
+            <p>Year: 2019</p>
+        </div>
+        <div class="featured-car">
+            <img src="../img/car2.jpg" alt="Featured-car 2">
+            <h3>Chevrolert Camaro</h3>
+            <p>Year: 2017</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to CarAutoMatch, your one-stop shop for finding the best car. We offer a wide variety of makes and models of cars for you to choose from. Whether you're looking for a brand new car or a used car, we've got you covered. Use our search feature to find your dream car today!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CarAutoMatch</p>
+    </footer>
+</body>
+</html>
