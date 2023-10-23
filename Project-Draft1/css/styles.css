@@ -9,17 +9,29 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
     margin: 0;
+=======
+    position: relative;
+>>>>>>> cb40e8376024f6cdafd1426c27b7e6907bd0f74a
 }
 
-img {
-    max-width: 100%;
+#featured img {
+    max-width: 50%;
     height: auto;
+    object-fit: cover;
+    border: 2px solid #fff; 
+    border-radius: 5px;
+}
+
+p.make {
+    font-size: larger;
+    font-weight: bold;
 }
 
 .background-image {
