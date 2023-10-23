@@ -154,8 +154,13 @@ button:hover {
     background-color: #439effdc;
 }
 
-.content-section {
-    /* Add styles for your content section here */
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
 footer {
