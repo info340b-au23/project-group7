@@ -1,0 +1,152 @@
+/* Reset some default browser styles */
+body, h1, h2, p, ul, li, a, button, form, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    position: relative
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img//background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* Make the background vague */
+    z-index: -1; /* Place it behind the main content */
+}
+
+header {
+    background-color: #439effdc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+}
+
+.menu a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-section {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1; /* Ensure the search area is on top of the background image */
+}
+
+.search-section h2 {
+    font-size: 24px;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #439effdc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #439effdc;
+}
+
+.content-section {
+    /* Add styles for your content section here */
+}
+
+footer {
+    background-color: #439effdc;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
