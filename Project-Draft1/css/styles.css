@@ -32,6 +32,30 @@ header {
     text-align: center;
 }
 
+table.favorites-list {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+}
+
+tr {
+    padding: 5em;
+    border-bottom: 1px solid #050505;
+}
+
+th {
+    height: 2rem;
+    text-align: left;
+    color: #1db954;
+    background-color: #d3d3d3;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
 .menu-icon {
     position: absolute;
     top: 10px;
