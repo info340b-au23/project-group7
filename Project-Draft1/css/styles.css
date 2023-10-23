@@ -31,19 +31,10 @@ p.make {
 }
 
 .background-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img//background-image.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4; /* Make the background vague */
-    z-index: -1; /* Place it behind the main content */
+    max-width: 100%;
+    height: auto;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 header {
@@ -68,7 +59,7 @@ tr {
 th {
     height: 2rem;
     text-align: left;
-    color: #1db954;
+    color: #155bbc;
     background-color: #d3d3d3;
 }
 
