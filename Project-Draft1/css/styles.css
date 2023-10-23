@@ -29,6 +29,11 @@ p.make {
     font-weight: bold;
 }
 
+p.description {
+    font-size: medium;
+    text-align: left;
+}
+
 .background-image {
     max-width: 100%;
     height: auto;
