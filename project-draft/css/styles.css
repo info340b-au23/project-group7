@@ -83,20 +83,11 @@ img {
     align-items: center;
 }
 
-nav ul {
-    list-style: none;
+.navbar {
+    width: 100%; /* Stretch navbar horizontally */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add shadow for depth */
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
 
 main {
     max-width: 800px;
@@ -182,6 +173,20 @@ footer {
 @media (max-width: 768px) {
     header h1 {
         font-size: 30px;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+    /* Hamburger menu styling */
+    .navbar-toggler {
+        border: none;
+        outline: none;
+    }
+    
+    .navbar-toggler-icon {
+        width: 24px; /* Adjust size as needed */
+        height: 24px;
     }
 
     #filter-form label, #filter-form input, #filter-form button {
