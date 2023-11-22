@@ -9,7 +9,7 @@ import Favorites from './components/Favorites';
 
 
 function App() {
-
+  
   return (
     <Router>
       <div>
@@ -27,7 +27,7 @@ function App() {
             <Favorites />
           </Route>
           <Route path='/comparison'>
-            <Comparison />
+            <Comparison cars={cars}/>
           </Route>
           {/* Other routes */}
         </Switch>
