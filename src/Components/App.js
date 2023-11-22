@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import MatchPage from './components/MatchPage';
 import Login from './components/Login';
+import Comparison from './components/Comparison';
+import Favorites from './components/Favorites';
+
 
 function App() {
   const featuredCars = [...]; // Your featured cars data
@@ -21,6 +24,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path='/favorites'>
+            <Favorites />
+          </Route>
+          <Route path='/comparison'>
+            <Comparison />
           </Route>
           {/* Other routes */}
         </Switch>
