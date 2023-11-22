@@ -1,8 +1,7 @@
 import React from 'react';
 
-export default function Comparison(car1, car2) {
-    const [make1, model1, year1, price1, economy1, KBB1, seats1, hp1, dt1] = car1;
-    const [make2, model2, year2, price2, economy2, KBB2, seats2, hp2, dt2] = car2;
+export default function Comparison([cars]) {
+    const [car1, car2] = cars;
     return (
         <section>
             <header>
