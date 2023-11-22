@@ -9,9 +9,7 @@ import Favorites from './components/Favorites';
 
 
 function App() {
-  const featuredCars = [...]; // Your featured cars data
-  const cars = [...]; // Your cars data for matching
-
+  
   return (
     <Router>
       <div>
