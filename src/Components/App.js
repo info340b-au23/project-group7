@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import MatchPage from './components/MatchPage';
+import Login from './components/Login';
 
 function App() {
   const featuredCars = [...]; // Your featured cars data
@@ -18,6 +18,9 @@ function App() {
           </Route>
           <Route path="/match">
             <MatchPage cars={cars} />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           {/* Other routes */}
         </Switch>
