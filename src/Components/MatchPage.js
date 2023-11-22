@@ -20,4 +20,3 @@ function MatchPage({ cars }) {
       </div>
     );
   }
-  
