@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default function Comparison([cars]) {
-    const [car1, car2] = cars;
+export default function Comparison(car1, car2) {
+    const [make1, model1, year1, price1, economy1, KBB1, seats1, hp1, dt1] = car1;
+    const [make2, model2, year2, price2, economy2, KBB2, seats2, hp2, dt2] = car2;
     return (
-        <body>
+        <section>
             <header>
                 <h2>Comparisons</h2><br/>
                 <a href="index.html">Home</a> | <a href="favorites.html">Favorites</a>
             </header>
             <main>
                 <table>
-                    <thead>
+                <thead>
                         <tr>
                             <th></th>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/52722/2024-Honda-Accord-front_52722_032_1810x721_GC_cropped.png" alt="dark grey midsize sedan"/></td>
@@ -56,6 +57,6 @@ export default function Comparison([cars]) {
                     </tbody>
                 </table>
             </main>
-        </body>
+        </section>
     );
 }

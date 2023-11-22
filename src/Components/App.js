@@ -9,14 +9,7 @@ import Favorites from './components/Favorites';
 
 
 function App() {
-  const featuredCars = [
-    { id: 1, make: 'Toyota', model: 'Corolla', year: 2020 },
-    { id: 2, make: 'Honda', model: 'Civic', year: 2018 },
-  ];
   
-  const cars = [{make:'Honda', model:'Civic', year:2024, price:25045, economy:'City 31/Hwy 40/Comb 36 MPG', KBB: 4.7, seats:5, hp:'158 @ 6500 RPM', dt:'FWD'},
-                {make:'Honda', model:'Accord', year:2024, price:28990, economy:'City 29/Hwy 37/Comb 32 MPG', KBB: 4.8, seats:5, hp:'192 @ 6000 RPM', dt:'FWD'}]
-
   return (
     <Router>
       <div>
