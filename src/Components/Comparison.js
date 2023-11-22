@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-export default function Comparison() {
-
+export default function Comparison(car1, car2) {
+    const [make1, model1, year1, price1, economy1, KBB1, seats1, hp1, dt1] = car1;
+    const [make2, model2, year2, price2, economy2, KBB2, seats2, hp2, dt2] = car2;
     return (
         <body>
             <header>
@@ -18,55 +19,40 @@ export default function Comparison() {
                         </tr>
                         <tr>
                             <th>Make, Model, & Year</th>
-                            <td>2024 Honda Accord</td>
-                            <td>2024 Honda Civic</td>
+                            <td>{year1} {make1} {model1}</td>
+                            <td>{year2} {make2} {model2}</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>Starting Price</th>
-                            <td>$28,990</td>
-                            <td>$25,045</td>
+                            <td>${price1}</td>
+                            <td>${price2}</td>
                         </tr>
                         <tr>
                             <th>Fuel Economy</th>
-                            <td>City 29/Hwy 37/Comb 32 MPG</td>
-                            <td>City 31/Hwy 40/Comb 36 MPG</td>
+                            <td>{economy1}</td>
+                            <td>{economy2}</td>
                         </tr>
                         <tr>
                             <th>KBB Expert Rating</th>
-                            <td>4.8 / 5</td>
-                            <td>4.7 / 5</td>
-                        </tr>
-                        <tr>
-                            <th>Fuel Type</th>
-                            <td>Gas</td>
-                            <td>Gas</td>
+                            <td>{KBB1}</td>
+                            <td>{KBB2}</td>
                         </tr>
                         <tr>
                             <th>Seating Capacity</th>
-                            <td>5</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <th>Basic Warranty</th>
-                            <td>3 years or 36000 miles</td>
-                            <td>3 years or 36000 miles</td>
+                            <td>{seats1}</td>
+                            <td>{seats2}</td>
                         </tr>
                         <tr>
                             <th>Horsepower</th>
-                            <td>192 @ 6000 RPM</td>
-                            <td>158 @ 6500 RPM</td>
-                        </tr>
-                        <tr>
-                            <th>Engine</th>
-                            <td>4-Cyl, i-VTEC, Turbo, 1.5 Liter</td>
-                            <td>4-Cyl, i-VTEC, 2.0 Liter</td>
+                            <td>{hp1}</td>
+                            <td>{hp2}</td>
                         </tr>
                         <tr>
                             <th>Drivetrain</th>
-                            <td>FWD</td>
-                            <td>FWD</td>
+                            <td>{dt1}</td>
+                            <td>{dt2}</td>
                         </tr>
                     </tbody>
                 </table>
