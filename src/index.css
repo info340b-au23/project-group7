@@ -1,13 +1,256 @@
-body {
+body, h1, h2, p, ul, li, a, button, form, input {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #439effdc;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.featured-car img {
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border: 2px solid #fff; 
+  border-radius: 5px;
+}
+
+p.make {
+  font-size: larger;
+  font-weight: bold;
+}
+
+p.description {
+  font-size: medium;
+  text-align: left;
+}
+
+.background-image {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+tr {
+  padding: 5em;
+  border-bottom: 1px solid #050505;
+}
+
+th {
+  height: 2rem;
+  text-align: left;
+  background-color: #d3d3d3;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.menu-icon {
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%; /* Stretch navbar horizontally */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add shadow for depth */
+}
+
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-section {
+  text-align: center;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.search-section h2 {
+  font-size: 24px;
+}
+
+#search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-container {
+  font-size: larger;
+  text-align: center;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: #439effdc;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#login {
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #439effdc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #439effdc;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+footer {
+  background-color: #439effdc;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+      font-size: 30px;
+  }
+  
+  .navbar-nav {
+      text-align: center;
+  }
+  /* Hamburger menu styling */
+  .navbar-toggler {
+      border: none;
+      outline: none;
+  }
+  
+  .navbar-toggler-icon {
+      width: 24px; /* Adjust size as needed */
+      height: 24px;
+  }
+
+  #filter-form label, #filter-form input, #filter-form button {
+      width: 100%;
+      margin: 5px 0;
+  }
+
+  .featured-car {
+      flex: 1;
+  }
+
+  .search-section {
+      font-size: 26px;
+      width: auto;
+  }
+  
+  .login-container {
+      font-size: larger;
+  }
+
+  #search-form {
+      flex-direction: row;
+      align-items: center;
+  }
+
+  #search-input {
+      width: 50%;
+  }
+}
+
+@media (min-width: 769px) {
+  header h1 {
+      font-size: 34px;
+  }
+
+  #filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  #filter-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  #filter-form label, #filter-form input, #filter-form button {
+      flex: 1;
+      max-width: 30%;
+      margin: 5px;
+  }
+
+  #featured {
+      display: flex;
+  }
+
+  .featured-car {
+      flex: 1;
+      margin: 10px;
+  }
+
+  tbody {
+      flex: 1;
+      padding: 20px;
+  }
 }

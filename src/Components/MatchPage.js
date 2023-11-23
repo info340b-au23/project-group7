@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../index.css';
 
 function MatchPage({ cars }) {
     const [filter, setFilter] = useState('');
@@ -14,7 +15,7 @@ function MatchPage({ cars }) {
     );
 
     return (
-        <div>
+        <div className='body'>
             <h1>Car Filter and Match</h1>
             <section>
                 <input 

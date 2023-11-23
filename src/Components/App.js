@@ -1,12 +1,11 @@
 import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import MatchPage from './components/MatchPage';
-import Login from './components/Login';
-import Comparison from './components/Comparison';
-import Favorites from './components/Favorites';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage';
+import MatchPage from './MatchPage';
+import Login from './Login';
+import Comparison from './Comparison';
+import Favorites from './Favorites';
+import '../index.css';
 
 function App() {
   const cars = [{year:2024, make:'Honda', model:'Civic', price:25045, economy:'City 31/Hwy 40/Comb 36 MPG', KBB:4.7, seats:5, hp:'158 @ 6500 RPM', dt: 'FWD'},
@@ -19,25 +18,14 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Switch>
-        <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="/match">
-            <MatchPage cars={cars} />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path='/favorites'>
-            <Favorites featuredCars={featuredCars} />
-          </Route>
-          <Route path='/comparison'>
-            <Comparison cars={cars}/>
-          </Route>
-          {/* Other routes */}
-        </Switch>
+      <div className='body'>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+            <Route path="/match" element={<MatchPage cars={cars} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path='/favorites' element={<Favorites featuredCars={featuredCars} />} />
+            <Route path='/comparison' element={<Comparison cars={cars}/>} />
+        </Routes>
       </div>
     </Router>
   );
