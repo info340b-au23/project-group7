@@ -37,6 +37,7 @@ function MatchPage({ cars }) {
                     )}
                 </ul>
             </section>
+            <a href="/">Home</a>
             {/* Other static content */}
         </div>
     )

@@ -1,14 +1,14 @@
 import React from 'react';
 import '../index.css';
 
-export default function Comparison([cars]) {
+export default function Comparison({cars}) {
     const [car1, car2] = cars;
     return (
         <section>
             <div className='body'>
                 <header>
                     <h2>Comparisons</h2><br />
-                    <a href="index.html">Home</a> | <a href="favorites.html">Favorites</a>
+                    <a href="/">Home</a>
                 </header>
                 <main>
                     <table>

@@ -1,13 +1,13 @@
 import React from 'react';
 import '../index.css';
 
-export default function Favorites([featuredCars]) {
+export default function Favorites({featuredCars}) {
     const [car1, car2, car3, car4, car5] = featuredCars;
     return (
         <div className='body'>
             <header>
                 <h2>Favorites List</h2><br/>
-                <a href="index.html">Home</a> | <a href="comparison.html">Comparison</a>
+                <a href="/">Home</a> 
             </header>
             <main>
                 <table>
