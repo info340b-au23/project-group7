@@ -17,8 +17,8 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route path="/" exact>
-            <HomePage featuredCars={featuredCars} />
+        <Route path="/">
+            <HomePage />
           </Route>
           <Route path="/match">
             <MatchPage cars={cars} />
@@ -27,7 +27,7 @@ function App() {
             <Login />
           </Route>
           <Route path='/favorites'>
-            <Favorites />
+            <Favorites featuredCars={featuredCars} />
           </Route>
           <Route path='/comparison'>
             <Comparison cars={cars}/>
