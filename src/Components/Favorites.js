@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Favorites() {
+export default function Favorites([featuredCars]) {
+    const [car1, car2, car3, car4, car5] = featuredCars;
     return (
         <body>
             <header>
@@ -24,42 +25,42 @@ export default function Favorites() {
                         <tr>
                             <td>1</td>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/52722/2024-Honda-Accord-front_52722_032_1810x721_GC_cropped.png" alt="dark grey midsize sedan"/></td>
-                            <td>2024 Honda Accord</td>
-                            <td>$28,990</td>
-                            <td>32 mpg</td>
-                            <td>4.8/5</td>
+                            <td>{car1.year} {car1.make} {car1.model}</td>
+                            <td>${car1.price}</td>
+                            <td>{car1.economy}</td>
+                            <td>{car1.KBB}</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/51622/2024-Honda-Civic-front_51622_032_1811x735_BK_cropped.png" alt="black compact sedan"/></td>
-                            <td>2024 Honda Civic</td>
-                            <td>$25,045</td>
-                            <td>36 mpg</td>
-                            <td>4.7/5</td>
+                            <td>{car2.year} {car2.make} {car2.model}</td>
+                            <td>${car2.price}</td>
+                            <td>{car2.economy}</td>
+                            <td>{car2.KBB}</td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/51343/2024-Hyundai-Elantra-front_51343_032_1842x743_W6H_cropped.png" alt="white compact sedan"/></td>
-                            <td>2024 Hyundai Elantra</td>
-                            <td>$22,590</td>
-                            <td>36 mpg</td>
-                            <td>4.6/5</td>
+                            <td>{car3.year} {car3.make} {car3.model}</td>
+                            <td>${car3.price}</td>
+                            <td>{car3.economy}</td>
+                            <td>{car3.KBB}</td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/53212/2024-Toyota-Camry-front_53212_032_1834x732_8W2_cropped.png" alt="blue midsize sedan"/></td>
-                            <td>2024 Toyota Camry</td>
-                            <td>$27,515</td>
-                            <td>32 mpg</td>
-                            <td>4.6/5</td>
+                            <td>{car4.year} {car4.make} {car4.model}</td>
+                            <td>${car4.price}</td>
+                            <td>{car4.economy}</td>
+                            <td>{car4.KBB}</td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td><img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/52815/2023-Toyota-Crown-front_52815_032_1837x748_1G3_cropped.png" alt="dark grey full size sedan"/></td>
-                            <td>2023 Toyota Crown</td>
-                            <td>$41,045</td>
-                            <td>41 mpg</td>
-                            <td>4.6/5</td>
+                            <td>{car5.year} {car5.make} {car5.model}</td>
+                            <td>${car5.price}</td>
+                            <td>{car5.economy}</td>
+                            <td>{car5.KBB}</td>
                         </tr>
                     </tbody>
                 </table>
