@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 function MatchPage({ cars }) {
@@ -8,7 +9,7 @@ function MatchPage({ cars }) {
         setFilter(e.target.value.toLowerCase());
     };
 
-    const filteredCars = cars.filter(car => 
+    const filteredCars = cars.filter(car =>
         car.make.toLowerCase().includes(filter) ||
         car.model.toLowerCase().includes(filter) ||
         car.year.toString().includes(filter)
@@ -18,10 +19,10 @@ function MatchPage({ cars }) {
         <div className='body'>
             <h1>Car Filter and Match</h1>
             <section>
-                <input 
-                    type="text" 
-                    placeholder="Filter by make, model, or year" 
-                    value={filter} 
+                <input
+                    type="text"
+                    placeholder="Filter by make, model, or year"
+                    value={filter}
                     onChange={handleFilterChange}
                 />
             </section>
@@ -30,7 +31,9 @@ function MatchPage({ cars }) {
                 <ul>
                     {filteredCars.length > 0 ? (
                         filteredCars.map(car => (
-                            <li key={car.id}>{car.make} - {car.model} - {car.year}</li>
+                            <li key={car.id}>
+                                <Link to={`/car/${car.id}`}>{car.make} - {car.model} - {car.year}</Link>
+                            </li>
                         ))
                     ) : (
                         <li>No matching cars found.</li>

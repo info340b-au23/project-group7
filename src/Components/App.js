@@ -5,6 +5,7 @@ import MatchPage from './MatchPage';
 import Login from './Login';
 import Comparison from './Comparison';
 import Favorites from './Favorites';
+import CarDetails from './CarDetails';
 import '../index.css';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path='favorites' element={<Favorites featuredCars={featuredCars} />} />
             <Route path='comparison' element={<Comparison cars={cars}/>} />
+            <Route path='/car/:carId' element={<CarDetails cars={cars} />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
