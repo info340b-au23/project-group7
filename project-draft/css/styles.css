@@ -109,6 +109,22 @@ img {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add shadow for depth */
 }
 
+.navbar .menu {
+    display: flex;
+}
+
+.navbar .hamburger {
+    display: none;
+}
+
+.navbar .nav-links {
+    display: none;
+}
+
+.navbar .nav-links.active {
+    display: block;
+}
+
 
 main {
     max-width: 800px;
@@ -204,7 +220,19 @@ footer {
     .navbar-nav {
         text-align: center;
     }
-    /* Hamburger menu styling */
+
+    .navbar .menu {
+        display: none;
+    }
+
+    .navbar .menu.active {
+        display: block;
+    }
+
+    .navbar .hamburger {
+        display: block;
+    }
+
     .navbar-toggler {
         border: none;
         outline: none;
@@ -214,7 +242,7 @@ footer {
         width: 24px; /* Adjust size as needed */
         height: 24px;
     }
-
+    
     #filter-form label, #filter-form input, #filter-form button {
         width: 100%;
         margin: 5px 0;
@@ -278,6 +306,13 @@ footer {
     .featured-car {
         flex: 1;
         margin: 10px;
+    }
+    .navbar .hamburger {
+        display: none; 
+    }
+
+    .navbar .nav-links {
+        display: flex;
     }
 
     tbody {

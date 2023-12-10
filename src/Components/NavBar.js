@@ -1,22 +1,23 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import '../index.css';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css'; // Make sure to create this CSS file
 
-export default function NavBar(props) {
-    const navItems = props.navItems;
-  
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">CarAutoMatcher</a>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            {navItems.map((item, index) => (
-              <li key={index} className="nav-item">
-                <a className="nav-link" href={item.link}>{item.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+        <nav className="navbar">
+            <button className="hamburger" onClick={toggleMenu}>☰</button>
+            <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+                <li><Link to="match.html">Match</Link></li>
+                <li><Link to="comparison.html">Comparison</Link></li>
+                <li><Link to="favorites.html">Favorites</Link></li>
+                <li><Link to="login.html">User Login</Link></li>
+            </ul>
+        </nav>
     );
-  }  
+};
+
+export default Navbar;
