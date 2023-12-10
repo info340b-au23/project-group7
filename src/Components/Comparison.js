@@ -1,8 +1,37 @@
 import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import '../index.css';
 
 export default function Comparison({cars}) {
-    const [car1, car2] = cars;
+
+    const chartData = [
+        {
+            name: 'Price',
+            car1: car1.price,
+            car2: car2.price,
+        },
+        {
+            name: 'Fuel Economy',
+            car1: parseFloat(car1.economy.split(' ')[0]), // Assuming economy is a string like "30 MPG"
+            car2: parseFloat(car2.economy.split(' ')[0]),
+        },
+        {
+            name: 'KBB Rating',
+            car1: car1.KBB,
+            car2: car2.KBB,
+        },
+        {
+            name: 'Seating Capacity',
+            car1: car1.seats,
+            car2: car2.seats,
+        },
+        {
+            name: 'Horsepower',
+            car1: parseInt(car1.hp.split(' ')[0]), 
+            car2: parseInt(car2.hp.split(' ')[0]),
+        },
+    ];
+
     return (
         <section>
             <div className='body'>
@@ -57,6 +86,16 @@ export default function Comparison({cars}) {
                             </tr>
                         </tbody>
                     </table>
+
+                    <BarChart width={600} height={300} data={chartData}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="car1" fill="#8884d8" name={car1.make + ' ' + car1.model} />
+                        <Bar dataKey="car2" fill="#82ca9d" name={car2.make + ' ' + car2.model} />
+                    </BarChart>
                 </main>
             </div>
         </section>
