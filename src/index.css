@@ -23,6 +23,13 @@ header {
   text-align: center;
 }
 
+.app-header {
+  background-color:#439effdc;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
 .featured-car img {
   width: 50%;
   height: auto;
