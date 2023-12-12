@@ -6,6 +6,7 @@ import Login from './Login';
 import Comparison from './Comparison';
 import Favorites from './Favorites';
 import CarDetails from './CarDetails';
+import NotFound from './NotFound';
 import '../index.css';
 
 function App() {
