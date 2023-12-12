@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getDatabase } from 'firebase/database';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 import MatchPage from './MatchPage';
@@ -11,7 +12,8 @@ import '../index.css';
 
 function App() {
   const [cars, setCars] = useState([]);
-
+  const db = getDatabase();
+  
   const handleCars = function(car) {
     const newCars = {...cars};
     if(newCars.length > 2) {
@@ -27,6 +29,7 @@ function App() {
   featuredCars.push({ year: 2024, make: 'Hyundai', model: 'Elantra', price: 22590, economy: 36, KBB: 4.6 });
   featuredCars.push({ year: 2024, make: 'Toyota', model: 'Camry', price: 27515, economy: 32, KBB: 4.6 });
   featuredCars.push({ year: 2023, make: 'Toyota', model: 'Crown', price: 41045, economy: 41, KBB: 4.6 });
+
 
   return (
     <Router>

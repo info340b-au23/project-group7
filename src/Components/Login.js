@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, EmailAuthProvider } from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'; //install option 1
 
