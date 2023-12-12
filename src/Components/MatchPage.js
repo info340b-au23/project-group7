@@ -2,19 +2,31 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
-function MatchPage(props) {
-    const cars = props.cars;
-    const [filter, setFilter] = useState('');
+function MatchPage({ cars = [], featuredCars = [] }) { // Set default props to empty arrays
+    const [makeFilter, setMakeFilter] = useState('');
+    const [modelFilter, setModelFilter] = useState('');
+    const [yearFilter, setYearFilter] = useState('');
 
-    const handleFilterChange = (e) => {
-        setFilter(e.target.value.toLowerCase());
+    const handleFilterChange = (filterType, value) => {
+        if (filterType === 'make') {
+            setMakeFilter(value.toLowerCase());
+        } else if (filterType === 'model') {
+            setModelFilter(value.toLowerCase());
+        } else if (filterType === 'year') {
+            setYearFilter(value);
+        }
     };
 
     const filteredCars = cars.filter(car =>
-        car.make.toLowerCase().includes(filter) ||
-        car.model.toLowerCase().includes(filter) ||
-        car.year.toString().includes(filter)
+        car.make.toLowerCase().includes(makeFilter) &&
+        car.model.toLowerCase().includes(modelFilter) &&
+        car.year.toString().includes(yearFilter)
     );
+
+    // If cars or featuredCars are empty, this could be a place to fetch data or handle the empty state
+    if (cars.length === 0 || featuredCars.length === 0) {
+        // Fetch data from an API or display a loading state or placeholder
+    }
 
     return (
         <div className='body'>
@@ -22,28 +34,51 @@ function MatchPage(props) {
             <section>
                 <input
                     type="text"
-                    placeholder="Filter by make, model, or year"
-                    value={filter}
-                    onChange={handleFilterChange}
+                    placeholder="Enter car make"
+                    value={makeFilter}
+                    onChange={(e) => handleFilterChange('make', e.target.value)}
                 />
+                <input
+                    type="text"
+                    placeholder="Enter car model"
+                    value={modelFilter}
+                    onChange={(e) => handleFilterChange('model', e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Enter car year"
+                    value={yearFilter}
+                    onChange={(e) => handleFilterChange('year', e.target.value)}
+                />
+                <button onClick={() => {}}>Filter</button>
             </section>
             <section>
                 <h2>Matching Cars</h2>
-                <ul>
-                    {filteredCars.length > 0 ? (
-                        filteredCars.map(car => (
+                {filteredCars.length > 0 ? (
+                    <ul>
+                        {filteredCars.map(car => (
                             <li key={car.id}>
                                 <Link to={`/car/${car.id}`}>{car.make} - {car.model} - {car.year}</Link>
                             </li>
-                        ))
-                    ) : (
-                        <li>No matching cars found.</li>
-                    )}
-                </ul>
+                        ))}
+                    </ul>
+                ) : (
+                    <div>No matching cars found.</div>
+                )}
             </section>
-            <a href="/">Home</a>
+            <section id="featured">
+                <h2>Featured Cars</h2>
+                {featuredCars.map((car, index) => (
+                    <div className="featured-car" key={index}>
+                        <img src={car.imageUrl} alt={`${car.make} ${car.model}`} />
+                        <p className="make">{car.make} {car.model}</p>
+                        <p>Year: {car.year}</p><br />
+                    </div>
+                ))}
+            </section>
+            <Link to="/">Back to Homepage</Link>
         </div>
-    )
+    );
 }
 
 export default MatchPage;
