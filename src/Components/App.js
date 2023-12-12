@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 import MatchPage from './MatchPage';
@@ -9,9 +9,17 @@ import CarDetails from './CarDetails';
 import '../index.css';
 
 function App() {
-  const cars = [];
-  cars.push({ year: 2024, make: 'Honda', model: 'Civic', price: 25045, economy: 'City 31/Hwy 40/Comb 36 MPG', KBB: 4.7, seats: 5, hp: '158 @ 6500 RPM', dt: 'FWD' });
-  cars.push({ year: 2024, make: 'Honda', model: 'Accord', price: 28990, economy: 'City 29/Hwy 37/Comb 32 MPG', KBB: 4.8, seats: 5, hp: '192 @ 6000 RPM', dt: 'FWD' });
+  const [cars, setCars] = useState([]);
+
+  const handleCars = function(car) {
+    const newCars = {...cars};
+    if(newCars.length > 2) {
+      newCars.splice(0, 1);
+    }
+    newCars.push(car);
+    setCars(newCars);
+  }
+
   const featuredCars = [];
   featuredCars.push({ year: 2024, make: 'Honda', model: 'Accord', price: 28990, economy: 32, KBB: 4.8 });
   featuredCars.push({ year: 2024, make: 'Honda', model: 'Civic', price: 25045, economy: 36, KBB: 4.7 });
@@ -26,7 +34,7 @@ function App() {
           <h1>CarAutoMatcher</h1>
         </header>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage callback={handleCars} />} />
           <Route path="/match" element={<MatchPage cars={cars} />} />
           <Route path="/login" element={<Login />} />
           <Route path='favorites' element={<Favorites featuredCars={featuredCars} />} />

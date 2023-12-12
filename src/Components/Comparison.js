@@ -2,8 +2,8 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import '../index.css';
 
-export default function Comparison({cars}) {
-    const [car1, car2] = cars;
+export default function Comparison(props) {
+    const [car1, car2] = props.cars;
 
     const data = [
         { subject: 'Price', A: 24000, B: 22000, fullMark: 30000 },

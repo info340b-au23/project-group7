@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
-function MatchPage({ cars }) {
+function MatchPage(props) {
+    const cars = props.cars;
     const [filter, setFilter] = useState('');
 
     const handleFilterChange = (e) => {

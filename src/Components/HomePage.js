@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
+import React, {useState} from 'react';
 
 // Import images
 import backgroundImage from '../img/background-image.jpg';
 import '../index.css';
 
-export default function HomePage() {
+export default function HomePage(props) {
     const navItems = [
         { name: 'Home', link: '/' },
         { name: 'Match', link: '/match' },
@@ -14,6 +14,14 @@ export default function HomePage() {
         { name: 'User Login', link: '/login' },
     ];
 
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Searching for:', searchTerm);
+        props.callback(searchTerm);
+    };
+    
     return (
         <div className='body'>
             <div className="home_page">
@@ -33,10 +41,17 @@ export default function HomePage() {
                 <main>
                     <section className="search-section">
                         <h2>Find Your Dream Car</h2>
-                        <form id="search-form">
-                            <label htmlFor="search-input">Enter car details:</label>
-                            <input type="text" id="search-input" aria-label="Car Search Input" placeholder="e.g., Brand, Model, Year" />
-                            <button type="submit">Search</button>
+                        <form id="search-form" onSubmit={handleSubmit}>
+                        <label htmlFor="search-input">Enter car details:</label>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            aria-label="Car Search Input" 
+                            placeholder="Brand, Model, Year" 
+                            value={searchTerm} 
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button type="submit">Search</button>
                         </form>
                     </section>
                 </main>

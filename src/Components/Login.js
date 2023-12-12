@@ -1,66 +1,68 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../index.css';
+import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'; //install option 1
+
+const firebaseUIConfig = {
+    signInOptions: [ //array of sign in options supported
+      //array can include just "Provider IDs", or objects with the IDs and options
+      GoogleAuthProvider.PROVIDER_ID,
+      { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
+    ],
+    signInFlow: 'popup', //don't redirect to authenticate
+    credentialHelper: 'none', //don't show the email account chooser
+    callbacks: { //"lifecycle" callbacks
+      signInSuccessWithAuthResult: () => {
+        return false; //don't redirect after authentication
+      }
+    }
+  }
+  
+  // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     setErrorMessage('');
+    //     console.log('Login attempt with', username, password);
+
+    //     try {
+    //         const response = await axios.post('/api/login', { username, password });
+
+    //         if (response.data.success) {
+    //             console.log('Login successful');
+    //         } else {
+    //             setErrorMessage('Login failed. Please try again.');
+    //         }
+
+    //         console.log('Username:', username, 'Password:', password);
+    //     } catch (error) {
+    //         setErrorMessage('An error occurred. Please try again later.');
+    //     }
+    // };
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const auth = getAuth();
+    const [user, loading, error] = useAuthState(auth);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setErrorMessage('');
-        console.log('Login attempt with', username, password);
+    if(loading){
+        return <div className='body' id="login" ><div className='login-container'><p>Loading</p></div></div>
 
-        try {
-            const response = await axios.post('/api/login', { username, password });
-
-            if (response.data.success) {
-                console.log('Login successful');
-            } else {
-                setErrorMessage('Login failed. Please try again.');
-            }
-
-            console.log('Username:', username, 'Password:', password);
-        } catch (error) {
-            setErrorMessage('An error occurred. Please try again later.');
-        }
-    };
-
-    return (
-        <div
-            className='body'
-            id="login"
-        >
-            <div className="login-container">
-                <h2>User Login</h2>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        required
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                    />
-                    <br />
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        required
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                    <br />
-                    <input type="submit" value="Login" />
-                </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <p>Don't have an account? <a href="/">Go to Homepage</a></p>
+    }
+    if(error){
+        return <div className='body' id="login" ><div className='login-container'><p>Error: {error}</p></div></div>
+    }
+    if(user){
+        return <div className='body' id="login" ><div className='login-container'><p>Welcome {user.displayName}</p></div></div>
+    } else {
+        return (
+            <div className='body' id="login" >
+                <div className="login-container">
+                    <h2>User Login</h2>
+                    <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+                    <p>Don't have an account? <a href="/">Go to Homepage</a></p>
+                </div>
             </div>
-        </div>
-    );
+        )
+    }
 }
 
 export default Login;
