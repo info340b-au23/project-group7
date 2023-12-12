@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
-function MatchPage({ cars = [], featuredCars = [] }) { // Set default props to empty arrays
+function MatchPage({ cars = [], featuredCars = [] }) {
     const [makeFilter, setMakeFilter] = useState('');
     const [modelFilter, setModelFilter] = useState('');
     const [yearFilter, setYearFilter] = useState('');
@@ -23,9 +23,7 @@ function MatchPage({ cars = [], featuredCars = [] }) { // Set default props to e
         car.year.toString().includes(yearFilter)
     );
 
-    // If cars or featuredCars are empty, this could be a place to fetch data or handle the empty state
     if (cars.length === 0 || featuredCars.length === 0) {
-        // Fetch data from an API or display a loading state or placeholder
     }
 
     return (
