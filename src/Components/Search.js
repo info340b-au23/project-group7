@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CarDetails from './CarDetails';
 import '../index.css';
 
 export default function SearchSection() {

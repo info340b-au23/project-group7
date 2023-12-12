@@ -3,7 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 import '../index.css';
 
 export default function Comparison({cars}) {
-
+    const car1 = cars[0];
+    const car2 = cars[1];
     const chartData = [
         {
             name: 'Price',
