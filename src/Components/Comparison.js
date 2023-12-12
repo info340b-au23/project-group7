@@ -3,15 +3,22 @@ import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, 
 import '../index.css';
 
 export default function Comparison(props) {
-    const [car1, car2] = props.cars;
+    let car1, car2;
+
+    if (!props.cars || props.cars.length < 2) {
+        car1 = { year: 2001, make: 'Default', model: 'CarA', price: 20000, economy: 30, hp: 150, KBB: 4.5 };
+        car2 = { year: 2004, make: 'Default', model: 'CarB', price: 25000, economy: 35, hp: 180, KBB: 4.8 };
+    } else {
+        [car1, car2] = props.cars;
+    }
 
     const data = [
-        { subject: 'Price', A: 24000, B: 22000, fullMark: 30000 },
-        { subject: 'Economy', A: 35, B: 30, fullMark: 50 },
-        { subject: 'Horsepower', A: 150, B: 180, fullMark: 200 },
-        { subject: 'Rating', A: 4.8, B: 4.7, fullMark: 5 },
-      ];
-      
+        { subject: 'Price', A: car1.price, B: car2.price, fullMark: 30000 },
+        { subject: 'Economy', A: car1.economy, B: car2.economy, fullMark: 50 },
+        { subject: 'Horsepower', A: car1.hp, B: car2.hp, fullMark: 200 },
+        { subject: 'Rating', A: car1.KBB, B: car2.KBB, fullMark: 5 },
+    ];
+
     return (
         <section>
             <div className='body'>
@@ -67,14 +74,14 @@ export default function Comparison(props) {
                         </tbody>
                     </table>
 
-                    <ResponsiveContainer width="100%" height="100%">
-                        <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={data}>
+                    <ResponsiveContainer width="100%" height={400}>
+                        <RadarChart data={data}>
                             <PolarGrid />
                             <PolarAngleAxis dataKey="subject" />
-                            <PolarRadiusAxis angle={30} domain={[0, 150]} />
+                            <PolarRadiusAxis angle={30} domain={[0, 'dataMax']} />
                             <Radar name="Car A" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
                             <Radar name="Car B" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
-                            <Tooltip />
+                            <Legend />
                         </RadarChart>
                     </ResponsiveContainer>
                 </main>
