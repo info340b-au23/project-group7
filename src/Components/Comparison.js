@@ -1,38 +1,17 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import '../index.css';
 
 export default function Comparison({cars}) {
-    const car1 = cars[0];
-    const car2 = cars[1];
-    const chartData = [
-        {
-            name: 'Price',
-            car1: car1.price,
-            car2: car2.price,
-        },
-        {
-            name: 'Fuel Economy',
-            car1: parseFloat(car1.economy.split(' ')[0]), // Assuming economy is a string like "30 MPG"
-            car2: parseFloat(car2.economy.split(' ')[0]),
-        },
-        {
-            name: 'KBB Rating',
-            car1: car1.KBB,
-            car2: car2.KBB,
-        },
-        {
-            name: 'Seating Capacity',
-            car1: car1.seats,
-            car2: car2.seats,
-        },
-        {
-            name: 'Horsepower',
-            car1: parseInt(car1.hp.split(' ')[0]), 
-            car2: parseInt(car2.hp.split(' ')[0]),
-        },
-    ];
+    const [car1, car2] = cars;
 
+    const data = [
+        { subject: 'Price', A: 24000, B: 22000, fullMark: 30000 },
+        { subject: 'Economy', A: 35, B: 30, fullMark: 50 },
+        { subject: 'Horsepower', A: 150, B: 180, fullMark: 200 },
+        { subject: 'Rating', A: 4.8, B: 4.7, fullMark: 5 },
+      ];
+      
     return (
         <section>
             <div className='body'>
@@ -88,15 +67,16 @@ export default function Comparison({cars}) {
                         </tbody>
                     </table>
 
-                    <BarChart width={600} height={300} data={chartData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="car1" fill="#8884d8" name={car1.make + ' ' + car1.model} />
-                        <Bar dataKey="car2" fill="#82ca9d" name={car2.make + ' ' + car2.model} />
-                    </BarChart>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={data}>
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="subject" />
+                            <PolarRadiusAxis angle={30} domain={[0, 150]} />
+                            <Radar name="Car A" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                            <Radar name="Car B" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+                            <Tooltip />
+                        </RadarChart>
+                    </ResponsiveContainer>
                 </main>
             </div>
         </section>

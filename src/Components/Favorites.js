@@ -3,7 +3,7 @@ import '../index.css';
 
 export default function Favorites({ featuredCars, user }) {
     const [car1, car2, car3, car4, car5] = featuredCars;
-    
+
     if (!user) {
         return <Navigate to="/login" />;
       }
